@@ -1,0 +1,22 @@
+﻿
+Microsoft Visual Studio Solution File, Format Version 12.00
+Project("{F2A71F9B-5D33-465A-A702-920D77279786}") = "Chronal Calibration", "Chronal Calibration.fsproj", "{720BFC99-4D5F-455D-BAD9-E08CF91A6D08}"
+EndProject
+Project("{F2A71F9B-5D33-465A-A702-920D77279786}") = "Tests", "Tests\Tests.fsproj", "{436BD444-C44D-4D30-B81B-63D6D3720C0E}"
+EndProject
+Global
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Debug|Any CPU = Debug|Any CPU
+		Release|Any CPU = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{720BFC99-4D5F-455D-BAD9-E08CF91A6D08}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{720BFC99-4D5F-455D-BAD9-E08CF91A6D08}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{720BFC99-4D5F-455D-BAD9-E08CF91A6D08}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{720BFC99-4D5F-455D-BAD9-E08CF91A6D08}.Release|Any CPU.Build.0 = Release|Any CPU
+		{436BD444-C44D-4D30-B81B-63D6D3720C0E}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{436BD444-C44D-4D30-B81B-63D6D3720C0E}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{436BD444-C44D-4D30-B81B-63D6D3720C0E}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{436BD444-C44D-4D30-B81B-63D6D3720C0E}.Release|Any CPU.Build.0 = Release|Any CPU
+	EndGlobalSection
+EndGlobal
