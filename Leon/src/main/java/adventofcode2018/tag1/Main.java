@@ -1,7 +1,6 @@
 package main.java.adventofcode2018.tag1;
 
 import java.util.List;
-import java.util.stream.Collectors;
 
 public class Main 
 {
@@ -9,13 +8,9 @@ public class Main
 	{
 		String dateipfad = "src/main/resources/adventofcode2018/tag1/Daten.txt";
 		Dateileser dateileser = new Dateileser();
-		List<String> frequenzen = dateileser.leseTextdateiEin(dateipfad);
-		System.out.println(new Frequenzierer().stelleFrequenzEin(konvertiereFrequenzlisteInArray(frequenzen)));
+		List<Integer> frequenzen = dateileser.leseTextdateiEin(dateipfad);
+		Frequenzierer frequenzierer = new Frequenzierer();
+		System.out.println(frequenzierer.stelleFrequenzEin(frequenzen));
+		System.out.println(frequenzierer.pruefeAufDoppeltefrequenz(frequenzen));
 	}
-	
-	private static String[] konvertiereFrequenzlisteInArray(List<String> frequenzen)
-	{
-		return frequenzen.stream()
-				.collect(Collectors.joining(",")).split(",");
-	}
-}
+} 

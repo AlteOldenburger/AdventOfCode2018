@@ -8,18 +8,18 @@ import java.util.List;
 
 public class Dateileser 
 {
-	public List<String> leseTextdateiEin(String dateiname)
+	public List<Integer> leseTextdateiEin(String dateiname)
 	{
 		
 		String zeile = "";
-		List<String> dateiinhalt = new ArrayList<>();
+		List<Integer> dateiinhalt = new ArrayList<>();
 		try {
 		FileReader filereader = new FileReader(dateiname);
 		BufferedReader bufferedreader = new BufferedReader(filereader);
 		
 		while( (zeile = bufferedreader.readLine()) != null )
 	    {
-			dateiinhalt.add(zeile);
+			dateiinhalt.add(Integer.parseInt(zeile));
 	    }
 			bufferedreader.close();
 			
