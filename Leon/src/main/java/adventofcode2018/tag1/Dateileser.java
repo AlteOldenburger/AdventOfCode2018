@@ -10,21 +10,18 @@ public class Dateileser
 {
 	public List<Integer> leseTextdateiEin(String dateiname)
 	{
-		
 		String zeile = "";
 		List<Integer> dateiinhalt = new ArrayList<>();
 		try {
 		FileReader filereader = new FileReader(dateiname);
 		BufferedReader bufferedreader = new BufferedReader(filereader);
-		
-		while( (zeile = bufferedreader.readLine()) != null )
+		while((zeile = bufferedreader.readLine()) != null )
 	    {
 			dateiinhalt.add(Integer.parseInt(zeile));
 	    }
 			bufferedreader.close();
-			
-		} catch (IOException e) {
-			// TODO Auto-generated catch block
+		} catch (IOException e) 
+		{
 			e.printStackTrace();
 		}
 		return dateiinhalt;

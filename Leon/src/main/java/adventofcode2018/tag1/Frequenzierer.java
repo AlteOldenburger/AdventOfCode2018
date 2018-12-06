@@ -8,11 +8,10 @@ public class Frequenzierer
 	public int stelleFrequenzEin(List<Integer> frequenzen)
 	{
 		int summe = 0;
-		
-			for(int frequenz:frequenzen)
-			{
-				summe += frequenz;
-			}
+		for(int frequenz:frequenzen)
+		{
+			summe += frequenz;
+		}
 		return summe;
 	}
 
@@ -20,9 +19,7 @@ public class Frequenzierer
 	{
 		List<Integer> frequenzspeicher = new ArrayList<>();
 		int summe = 0;
-		
 		boolean frequenzGefunden = false;
-		
 		while(frequenzGefunden == false)
 		{
 			for(int frequenz:frequenzen)
