@@ -15,6 +15,7 @@ public class Frequenzierer
 		return summe;
 	}
 
+	// Geht das nicht streamiger? :D
 	public int pruefeAufDoppeltefrequenz(List<Integer> frequenzen) 
 	{
 		List<Integer> frequenzspeicher = new ArrayList<>();
