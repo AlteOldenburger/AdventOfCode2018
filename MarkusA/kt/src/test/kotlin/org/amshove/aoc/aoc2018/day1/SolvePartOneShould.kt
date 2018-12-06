@@ -1,7 +1,7 @@
-package day1
+package org.amshove.aoc.aoc2018.day1
 
 import org.amshove.kluent.shouldEqual
-import org.junit.Test
+import org.junit.jupiter.api.Test
 
 class SolvePartOneShould {
     private fun solve(vararg frequencies: Long) = solvePartOne(frequencies.toList())
