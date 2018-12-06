@@ -12,7 +12,7 @@ private fun String.withDifference(to: String) =
             this.substring(0..diffedIndex) + this.substring(diffedIndex + 1)
         }
 
-fun asd(boxIds: Iterable<String>) =
+fun findSimilarBoxIds(boxIds: Iterable<String>) =
     boxIds
         .map { testedBoxId ->
             boxIds.filter { testedAgainstId ->
@@ -24,7 +24,7 @@ fun asd(boxIds: Iterable<String>) =
         .let { it[0].withDifference(it[1]) }
 
 fun main(args: Array<String>) {
-    println(asd(INPUT))
+    println(findSimilarBoxIds(INPUT))
     // Falsch. Hab eine BoxId gesucht die nur einen Unterschied zu einer anderen hat.
     // Gesucht ist die Id ohne den unterschiedlichen Buchstaben
 }
