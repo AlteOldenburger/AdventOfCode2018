@@ -67,25 +67,25 @@ class TreeBuilderTest < Test::Unit::TestCase
     end
 
     def test_illegal_inputs
-        assert_raises(RuntimeError) { TreeParser.new.parse("") }
-        assert_raises(RuntimeError) { TreeParser.new.parse("0") }
-        assert_raises(RuntimeError) { TreeParser.new.parse("00") }
+        assert_raises(RuntimeError) { TreeParser.new.parse_single_node("") }
+        assert_raises(RuntimeError) { TreeParser.new.parse_single_node("0") }
+        assert_raises(RuntimeError) { TreeParser.new.parse_single_node("00") }
     end
 
     def test_tree_with_single_node_with_single_metadata
-        tree = TreeParser.new.parse("0 1 1")
+        tree = TreeParser.new.parse_single_node("0 1 1")
         assert_equal([1], tree.metadata)
         assert_equal([], tree.children)
     end
 
     def test_tree_with_single_node_with_multiple_metadata
-        tree = TreeParser.new.parse("0 3 1 2 3")
+        tree = TreeParser.new.parse_single_node("0 3 1 2 3")
         assert_equal([1, 2, 3], tree.metadata)
         assert_equal([], tree.children)
     end
 
     def test_tree_with_parent_and_child_with_single_metadata
-        tree = TreeParser.new.parse("1 1 0 1 3 2")
+        tree = TreeParser.new.parse_single_node("1 1 0 1 3 2")
         #                            A----------
         #                                B----
         assert_equal([2], tree.metadata)
@@ -95,7 +95,7 @@ class TreeBuilderTest < Test::Unit::TestCase
     end
 
     def test_tree_with_parent_and_child_with_multiple_metadata
-        tree = TreeParser.new.parse("1 3 0 2 5 6 2 3 4")
+        tree = TreeParser.new.parse_single_node("1 3 0 2 5 6 2 3 4")
         #                            A----------------
         #                                B------
         assert_equal([2, 3, 4], tree.metadata)
@@ -105,7 +105,7 @@ class TreeBuilderTest < Test::Unit::TestCase
     end
 
     def test_tree_with_parent_and_child_and_grandparent_with_multiple_metadata
-        tree = TreeParser.new.parse("1 3 1 2 0 1 7 5 6 2 3 4")
+        tree = TreeParser.new.parse_single_node("1 3 1 2 0 1 7 5 6 2 3 4")
         #                            A----------------------
         #                                B------------
         #                                    C----
@@ -120,7 +120,7 @@ class TreeBuilderTest < Test::Unit::TestCase
     end
 
     def test_tree_with_parent_and_two_children
-        tree = TreeParser.new.parse("2 1 0 1 2 0 1 3 4")
+        tree = TreeParser.new.parse_single_node("2 1 0 1 2 0 1 3 4")
         #                            A----------------
         #                                B---- C----
         assert_equal([4], tree.metadata)
@@ -134,7 +134,7 @@ class TreeBuilderTest < Test::Unit::TestCase
     end
 
     def test_example_data
-        tree = TreeParser.new.parse("2 3 0 3 10 11 12 1 1 0 1 99 2 1 1 2")
+        tree = TreeParser.new.parse_single_node("2 3 0 3 10 11 12 1 1 0 1 99 2 1 1 2")
         #                            A----------------------------------
         #                                B----------- C-----------
         #                                                 D-----
@@ -145,7 +145,7 @@ class TreeBuilderTest < Test::Unit::TestCase
     end
 
     def test_many_siblings
-        tree = TreeParser.new.parse("4 3 0 2 4 5 0 1 6 0 2 7 8 0 3 9 10 11 1 2 3")
+        tree = TreeParser.new.parse_single_node("4 3 0 2 4 5 0 1 6 0 2 7 8 0 3 9 10 11 1 2 3")
         #                            A------------------------------------------
         #                                B------ C---- D------ E----------
         assert_equal(4, tree.children.length)
@@ -154,7 +154,7 @@ class TreeBuilderTest < Test::Unit::TestCase
     end
 
     def test_complex_example
-        tree = TreeParser.new.parse("4 3 1 2 1 1 0 2 14 15 12 13 16 0 1 6 0 2 7 8 2 3 0 1 17 0 2 18 19 9 10 11 1 2 3")
+        tree = TreeParser.new.parse_single_node("4 3 1 2 1 1 0 2 14 15 12 13 16 0 1 6 0 2 7 8 2 3 0 1 17 0 2 18 19 9 10 11 1 2 3")
         #                            A------------------------------------------------------------------------------
         #                                B------------------------- C---- D------ E---------------------------
         #                                    F---------------                         H----- I--------
