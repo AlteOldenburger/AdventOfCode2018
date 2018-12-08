@@ -26,4 +26,9 @@ class Node
         puts "  " * level + to_s
         children.each { |c| c.print_tree(level + 1)}
     end
+
+    def value
+        return metadata.sum if @children.empty?
+        metadata.select { |i| i > 0 && !@children[i - 1].nil? }.collect { |i| @children[i - 1].value }.sum
+    end
 end

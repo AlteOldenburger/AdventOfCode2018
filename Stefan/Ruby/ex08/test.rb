@@ -7,6 +7,15 @@ class TreeBuilderTest < Test::Unit::TestCase
         assert_equal([], node.children)
         assert_equal([], node.metadata)
         assert_equal("Node with 0 direct children, 0 accumulated children, metadata = []", node.to_s)
+        assert_equal(0, node.value)
+    end
+
+    def test_node_with_metadata
+        node = Node.new([], [1, 2 ,3])
+        assert_equal([], node.children)
+        assert_equal([1, 2, 3], node.metadata)
+        assert_equal("Node with 0 direct children, 0 accumulated children, metadata = [1, 2, 3]", node.to_s)
+        assert_equal(6, node.value)
     end
 
     def test_node_with_children
@@ -19,6 +28,7 @@ class TreeBuilderTest < Test::Unit::TestCase
         assert_equal(2, node.accumulated_nr_children)
         assert_equal(6, node.sum_of_metadata)
         assert_equal("Node with 2 direct children, 2 accumulated children, metadata = [3]", node.to_s)
+        assert_equal(0, node.value)
     end
 
     def test_node_with_children_and_grandchildren
@@ -33,6 +43,27 @@ class TreeBuilderTest < Test::Unit::TestCase
         assert_equal(5, node.accumulated_nr_children)
         assert_equal(36, node.sum_of_metadata)
         assert_equal("Node with 2 direct children, 5 accumulated children, metadata = [8]", node.to_s)
+    end
+
+    def test_node_values_with_indexed_children
+        child1 = Node.new([], [10])
+        child2 = Node.new([], [20])
+        child3 = Node.new([], [30])
+        # A metadata entry of 1 refers to the first child node
+        node = Node.new([child1, child2, child3], [1])
+        assert_equal(10, node.value)
+
+        # If a referenced child node does not exist, that reference is skipped
+        node = Node.new([child1, child2, child3], [4])
+        assert_equal(0, node.value)
+
+        # A child node can be referenced multiple time and counts each time it is referenced
+        node = Node.new([child1, child2, child3], [1, 1])
+        assert_equal(20, node.value)
+
+        # A metadata entry of 0 does not refer to any child node
+        node = Node.new([child1, child2, child3], [1, 0])
+        assert_equal(10, node.value)
     end
 
     def test_illegal_inputs
@@ -110,6 +141,7 @@ class TreeBuilderTest < Test::Unit::TestCase
         assert_equal(2, tree.children.length)
         assert_equal(3, tree.accumulated_nr_children)
         assert_equal(138, tree.sum_of_metadata)
+        assert_equal(66, tree.value)
     end
 
     def test_many_siblings
