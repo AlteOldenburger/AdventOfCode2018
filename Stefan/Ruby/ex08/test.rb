@@ -1,7 +1,7 @@
 require 'test/unit'
 require './tree_parser.rb'
 
-class TreeBuilderTest < Test::Unit::TestCase
+class TreeTest < Test::Unit::TestCase
     def test_empty_node
         node = Node.new
         assert_equal([], node.children)
