@@ -20,21 +20,21 @@ fun showSky(sky: Sky) {
     val maxY = yCoordinates.max()
 
     // `min` und `max` geben `T?` zurueck
-    if(anyNull(minX, maxX, minY, maxY)) {
+    if (anyNull(minX, maxX, minY, maxY)) {
         throw Exception("Coordinates can't be null")
     }
 
     // smartCast minX und maxX zu `Int` statt `Int?` durch anyNull
-    for(y in minY..maxY) {
-        for(x in minX..maxX) {
-            print(if(sky.any { it.position.x == x && it.position.y == y}) "#" else ".")
+    for (y in minY..maxY) {
+        for (x in minX..maxX) {
+            print(if (sky.any { it.position.x == x && it.position.y == y }) "#" else ".")
         }
         println()
     }
 }
 
 @ExperimentalContracts
-private fun anyNull(x: Any?, y: Any?, vx: Any?, vy: Any?) : Boolean {
+private fun anyNull(x: Any?, y: Any?, vx: Any?, vy: Any?): Boolean {
     contract {
         returns() implies (x != null && y != null && vx != null && vy != null)
     }
