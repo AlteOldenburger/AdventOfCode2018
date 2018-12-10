@@ -11,7 +11,7 @@ public class ChecksummenBerechner
 {
 	public int berechneChecksumme(BufferedReader bufferedreader) throws IOException
 	{
-		String zeile;
+		String zeile; 
 		int doppelteBuchstaben = 0;
 		int dreifacheBuchstaben = 0;
 		while((zeile = bufferedreader.readLine()) != null)
@@ -32,6 +32,7 @@ public class ChecksummenBerechner
 				dreifacheBuchstaben++;
 			}
 		}
+		bufferedreader.close();
 		return doppelteBuchstaben * dreifacheBuchstaben;
 	}
 }
