@@ -21,7 +21,7 @@ public class Main
 		}
 
 		System.out.println("The list of frequency changes:\n" +
-				frequencyChanges.toString() + "\ngives back the result: " + currentFrequency);
+			frequencyChanges.toString() + "\ngives back the result: " + currentFrequency);
 	}
 
 	public static List<Integer> readInputData()
