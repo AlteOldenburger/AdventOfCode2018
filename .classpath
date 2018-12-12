@@ -6,5 +6,6 @@
 	<classpathentry kind="src" path="Stefan/src/main/java"/>
 	<classpathentry kind="src" path="Stefan/src/test/java"/>
 	<classpathentry kind="lib" path="Stefan/gradle/wrapper/gradle-wrapper.jar"/>
+	<classpathentry kind="con" path="org.eclipse.jdt.junit.JUNIT_CONTAINER/5"/>
 	<classpathentry kind="output" path="bin"/>
 </classpath>

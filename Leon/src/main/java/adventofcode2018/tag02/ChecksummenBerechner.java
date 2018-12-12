@@ -1,4 +1,4 @@
-package main.java.adventofcode2018.tag2;
+package main.java.adventofcode2018.tag02;
 
 import java.io.BufferedReader;
 import java.io.IOException;

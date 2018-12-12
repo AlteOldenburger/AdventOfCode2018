@@ -722,4 +722,13 @@ Cargo.lock
 
 # Local History for Visual Studio
 
+# Eclipse
+.settings/
+.buildpath
+.classpath
+.project
+
+
 # End of https://www.gitignore.io/api/go,c++,java,rust,cmake,fsharp,csharp,kotlin,clojure,intellij+all,visualstudio,visualstudiocode
+
+
