@@ -20,14 +20,14 @@ public class StringUnterschiedAgent
         return "";
     }
 
-    private String entferneUnterschiedlicheCharacter(String folgenderString, String anführenderString) 
+    private String entferneUnterschiedlicheCharacter(String folgenderString, String anfuehrenderString) 
     {
         String result = "";
-        for (int i = 0; i < anführenderString.length(); i++) 
+        for (int i = 0; i < anfuehrenderString.length(); i++) 
         {
-            if (anführenderString.charAt(i) == folgenderString.charAt(i)) 
+            if (anfuehrenderString.charAt(i) == folgenderString.charAt(i)) 
             {
-                result += anführenderString.charAt(i);
+                result += anfuehrenderString.charAt(i);
             }
         }
         return result;
