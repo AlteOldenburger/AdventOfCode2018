@@ -11,7 +11,7 @@ public class Main
 {
 	public static void main(String[] args)
 	{
-		List<Integer> frequencyChanges = leseDateiEin();
+		List<Integer> frequencyChanges = readInputData();
 
 		int currentFrequency = 0;
 
@@ -24,7 +24,7 @@ public class Main
 				frequencyChanges.toString() + "\ngives back the result: " + currentFrequency);
 	}
 
-	public static List<Integer> leseDateiEin()
+	public static List<Integer> readInputData()
 	{
 		String dateipfad = "../AdventOfCode2018/Justin/de/harder/day01/input.txt";
 
