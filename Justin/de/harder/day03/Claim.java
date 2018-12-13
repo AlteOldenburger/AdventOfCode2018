@@ -59,4 +59,11 @@ public class Claim
 
 		return cells;
 	}
+
+	@Override
+	public String toString()
+	{
+		return "Claim [id=" + id + ", topEdge=" + topEdge + ", leftEdge=" + leftEdge + ", height=" + height + ", width="
+			+ width + "]";
+	}
 }
