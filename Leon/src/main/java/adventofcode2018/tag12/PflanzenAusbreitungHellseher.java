@@ -24,4 +24,9 @@ public class PflanzenAusbreitungHellseher
 		return stringBuilder.toString();
 	}
 
+	private Blumentopf entscheideZukunft(Blumentopf vorher)
+	{
+		return null;
+	}
+
 }
