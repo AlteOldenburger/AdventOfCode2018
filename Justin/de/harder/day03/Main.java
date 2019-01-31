@@ -1,6 +1,7 @@
 package de.harder.day03;
 
 import java.util.ArrayList;
+import java.util.Collection;
 import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
@@ -13,7 +14,7 @@ public class Main
 		Dateileser dateileser = new Dateileser();
 		List<String> inhalte = dateileser.leseDateiEin(dateipfad);
 		List<Claim> claims = erstelleClaimList(inhalte);
-		findeUeberlappendeZellen(claims);
+		System.out.println(findeUeberlappendeZellen(claims));
 	}
 
 	public static List<Claim> erstelleClaimList(List<String> inhalte)
@@ -37,20 +38,15 @@ public class Main
 		return claims;
 	}
 
-	public static int findeUeberlappendeZellen(List<Claim> claims)
+	public static long findeUeberlappendeZellen(List<Claim> claims)
 	{
 		Map<Cell, Integer> zelleMitAnzahlUeberlappungen = new HashMap<>();
 
-		for (Claim claim : claims)
-		{
-			for (Cell cell : claim.getCells())
-			{
-				zelleMitAnzahlUeberlappungen.merge(cell, 1, (a, b) -> a + b);
-			}
-		}
+		claims.stream().flatMap(c -> c.getCells().stream())
+			.forEach(c -> zelleMitAnzahlUeberlappungen.merge(c, 1, (a, b) -> a + b));
 
-		// Vergleichen von Zellen anhand der Koordination
+		Collection<Integer> ueberlappungen = zelleMitAnzahlUeberlappungen.values();
 
-		return 0;
+		return ueberlappungen.stream().filter(i -> i > 1).count();
 	}
 }
