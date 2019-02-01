@@ -44,6 +44,26 @@ public class Polymer
 		return unitOne - unitTwo == 32 || unitOne - unitTwo == -32;
 	}
 
+	public void removeUnits(char unitToRemoveUpperCase, char unitToRemoveLowerCase)
+	{
+		int i = 0;
+		while (i < units.size() - 1)
+		{
+			if (units.get(i) == unitToRemoveUpperCase || units.get(i) == unitToRemoveLowerCase)
+			{
+				units.remove(i);
+				if (i > 0)
+				{
+					i--;
+				}
+			}
+			else
+			{
+				i++;
+			}
+		}
+	}
+
 	public List<Character> getUnits()
 	{
 		return units;
